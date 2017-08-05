@@ -18,14 +18,13 @@ end
 
 -- The color can be specified either by name, or by its hex value
 function M.hex(color)
-    local hex_color = color
     if type(color) == "string" then
-        hex_color = M.colors[color]
-        if hex_color == nil then
+        color = M.colors[color]
+        if color == nil then
             error("Color doesn't exist.  Feel free to add it and send a PR")
         end
     end
-    local c = hex_to_rgb(hex_color)
+    local c = hex_to_rgb(color)
     return string.char(c.g, c.r, c.b)
 end
 
