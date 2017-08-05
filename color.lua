@@ -10,10 +10,10 @@ local M = {
 }
 
 local function hex_to_rgb(hex_color)
-        return {r = hex_color/(2^16) % 0x100,
-                g = hex_color/(2^8) % 0x100,
-                b = hex_color % 0x100
-                }
+    return {r = math.floor(hex_color/(2^16) % 0x100),
+            g = math.floor(hex_color/(2^8) % 0x100),
+            b = math.floor(hex_color % 0x100)
+    }
 end
 
 -- The color can be specified either by name, or by its hex value
