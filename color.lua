@@ -19,9 +19,12 @@ end
 -- The color can be specified either by name, or by its hex value
 function M.hex(color)
     if type(color) == "string" then
-        color = M.colors[color]
+        local color_name = color
+        color = M.colors[color_name]
         if color == nil then
-            error("Color doesn't exist.  Feel free to add it and send a PR")
+	   error(string.format(
+		    "Color %q doesn't exist.  Feel free to add it and send a PR",
+		    color_name))
         end
     end
     local c = hex_to_rgb(color)
